@@ -6,7 +6,7 @@ Authors@R: c(
     person("Cam", "Linker", email = "clinker@smith.edu", role = c("aut", "cre")),
     person("Danielle", "Church", email = "dchurch@smith.edu", role = c("aut", "cre")),
     person("Taylor", "Knibb", email = "tknibb@smith.edu", role = c("aut", "cre")))
-Description: Comprehensive dataset and custom functions that help users with analyzing video game
+Description: Comprehensive dataset and customized functions that help users with analyzing video game
     sales in Africa, Europe, Japan, North America, and other regions around the globe in 1971-2024. 
 License: use_mit_license()
 Encoding: UTF-8
