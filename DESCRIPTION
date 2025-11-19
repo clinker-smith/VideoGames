@@ -1,24 +1,17 @@
 Package: VideoGames
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Analyze Global Video Game Sales (1971-2024)
 Version: 0.1.0
 Authors@R: c(
-    person(
-      "Jane", "Doe",
-      email = "jane@example.com",
-      role = c("aut", "cre")
-    )
-  )
-Description: More about what it does (maybe more than one line).
-    Continuation lines should be indented.
-License: What license is it under?
+    person("Cam", "Linker", email = "clinker@smith.edu", role = c("aut", "cre")),
+    person("Danielle", "Church", email = "dchurch@smith.edu", role = c("aut", "cre")),
+    person("Taylor", "Knibb", email = "tknibb@smith.edu", role = c("aut", "cre")))
+Description: Comprehensive dataset and customized functions that help users with analyzing video game
+    sales in Africa, Europe, Japan, North America, and other regions around the globe in 1971-2024. 
+License: use_mit_license()
 Encoding: UTF-8
 LazyData: true
 URL: https://github.com/clinker-smith/VideoGames
 BugReports: https://github.com/clinker-smith/VideoGames/issues
 Depends: 
     R (>= 3.5)
-Suggests: 
-    knitr,
-    rmarkdown
-VignetteBuilder: knitr
