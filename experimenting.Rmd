@@ -81,6 +81,7 @@ map_sales <- function(game_title) {
   
   return(map)
 }
+
 ```
 
 ```{r}
