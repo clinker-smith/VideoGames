@@ -3,3 +3,33 @@ title: "experimenting"
 output: html_document
 ---
 
+```{r}
+library(dplyr)
+  
+regional_share <- function(data, region_name, n) {
+  region_sym <- rlang::sym(region_name)
+  
+  if (!region_name %in% names(data)) {
+    stop(paste("Region", region_name, "does not exist in the dataset."))
+  } 
+  
+  data|>
+    filter(!!region_sym != total_sales)|>
+    mutate(region_share = (!!region_sym / total_sales) * 100)|>
+    select(title, !!region_sym, total_sales, region_share)|>
+    rename(region_sales = !!region_sym,
+           global_sales = total_sales)|>
+    arrange(desc(region_share))|>
+    slice_head(n = n) 
+}
+```
+
+```{r}
+top10_critics <- function(data){
+  data|>
+    arrange(desc(critic_score))|>
+    select(title, critic_score)|>
+    slice_head(n = 10)
+}
+```
+
