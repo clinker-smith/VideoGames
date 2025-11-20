@@ -9,7 +9,7 @@
 #' from most common to least common. The output is printed directly to the
 #' console.
 #'
-#' @param df A data frame containing a column named `genre` representing
+#' @param .data A data frame containing a column named `genre` representing
 #' video game genres.
 #'
 #' @return Prints a data frame called `genre_df` with two columns:

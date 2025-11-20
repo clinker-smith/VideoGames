@@ -7,7 +7,7 @@
 print_genre(.data)
 }
 \arguments{
-\item{df}{A data frame containing a column named `genre` representing
+\item{.data}{A data frame containing a column named `genre` representing
 video game genres.}
 }
 \value{
