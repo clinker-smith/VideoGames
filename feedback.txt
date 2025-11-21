@@ -1,0 +1,7 @@
+Campbell, Taylor, and Danielle, thanks for the package!
+
+I think you all are on the right track. You will need to flesh out more of the functionality of the package over the next few weeks. From my end, I received 5 warnings and 5 notes, but they all stem from the use of map_sales. You will need to use the \dontrun{} command in your Roxygen2 comments to prevent examples from running. Additionally, you will need to add importFrom/import arguments too so they are documented in the NAMESPACE.
+
+For using the example, it will all be in-house, so do not put vgdata as an input to print_genre.
+
+Once you fix theseissues, you should be on the right track. From there, it will be continuing to expand the package.
