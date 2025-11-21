@@ -10,10 +10,7 @@ library(sf)
 library(dplyr)
 library(tidyr)
 library(rnaturalearth)
-<<<<<<< HEAD
 # https://github.com/ropensci/rnaturalearth 
-=======
->>>>>>> 2c231e6be66f18104b3ab6ec585b4eea07ed79f3
 library(rnaturalearthdata)
 ```
 
@@ -29,12 +26,7 @@ map_sales <- function(game_title) {
   # in case the argument is incorrect
   if (nrow(game_sales[game_sales$title == game_title, ]) == 0) {
     stop(paste("No such game exists, check the data for the spelling"))
-<<<<<<< HEAD
-  }
-  
-=======
-    }
->>>>>>> 2c231e6be66f18104b3ab6ec585b4eea07ed79f3
+  }  
   
   # ne_countries come from `rnaturalearth` which we will include in the imports section of the description file. only selecting country name and geometry info for each country's polygon.
   world <- ne_countries(scale = "medium", returnclass = "sf") |>
@@ -45,11 +37,7 @@ map_sales <- function(game_title) {
   # used lists of countries copied online from https://copypastelist.com/geography/list/list-of-countries-in-europe 
   north_america <- c('Antigua and Barbuda','The Bahamas','Barbados','Belize','Canada', 'Costa Rica','Cuba','Dominica','Dominican Republic','El Salvador', 'Grenada','Guatemala','Haiti','Honduras','Jamaica','Mexico', 'Nicaragua','Panama','Saint Kitts and Nevis','Saint Lucia', 'Saint Vincent and the Grenadines','Trinidad and Tobago','United States of America')
   
-<<<<<<< HEAD
   eur_af <- c('Albania','Andorra','Armenia','Austria','Azerbaijan','Belarus','Belgium', 'Bosnia and Herz.','Bulgaria','Croatia','Cyprus','Czechia','Denmark', 'Estonia','Finland','France','Georgia','Germany','Greece','Hungary','Iceland', 'Ireland','Italy','Kazakhstan','Kosovo','Latvia','Liechtenstein','Lithuania', 'Luxembourg','Malta','Moldova','Monaco','Montenegro','Netherlands', 'North Macedonia','Norway','Poland','Portugal','Romania', 'San Marino','Serbia','Slovakia','Slovenia','Spain','Sweden','Switzerland', 'Turkey','Ukraine','United Kingdom','Vatican City', 'Algeria','Angola','Benin','Botswana','Burkina Faso','Burundi','Cabo Verde', 'Cameroon','Central African Rep.','Chad','Comoros','Congo', 'Dem. Rep. Congo',"Côte d'Ivoire",'Djibouti','Egypt', 'Equatorial Guinea','Eritrea','eSwatini','Ethiopia','Gabon','Gambia','Ghana', 'Guinea','Guinea-Bissau','Kenya','Lesotho','Liberia','Libya','Madagascar', 'Malawi','Mali','Mauritania','Mauritius','Morocco','Mozambique','Namibia', 'Niger','Nigeria','Rwanda','São Tomé and Príncipe','Senegal','Seychelles', 'Sierra Leone','Somalia','South Africa','S. Sudan','Sudan','Tanzania', 'Togo','Tunisia','Uganda','Zambia','Zimbabwe')
-=======
-  eur_af <- c('Albania','Andorra','Armenia','Austria','Azerbaijan','Belarus','Belgium', 'Bosnia and Herzegovina','Bulgaria','Croatia','Cyprus','Czechia','Denmark', 'Estonia','Finland','France','Georgia','Germany','Greece','Hungary','Iceland', 'Ireland','Italy','Kazakhstan','Kosovo','Latvia','Liechtenstein','Lithuania', 'Luxembourg','Malta','Moldova','Monaco','Montenegro','Netherlands', 'North Macedonia','Norway','Poland','Portugal','Romania', 'San Marino','Serbia','Slovakia','Slovenia','Spain','Sweden','Switzerland', 'Turkey','Ukraine','United Kingdom','Vatican City', 'Algeria','Angola','Benin','Botswana','Burkina Faso','Burundi','Cabo Verde', 'Cameroon','Central African Rep.','Chad','Comoros','Congo', 'Dem. Rep. Congo',"Côte d'Ivoire",'Djibouti','Egypt', 'Equatorial Guinea','Eritrea','Eswatini','Ethiopia','Gabon','Gambia','Ghana', 'Guinea','Guinea-Bissau','Kenya','Lesotho','Liberia','Libya','Madagascar', 'Malawi','Mali','Mauritania','Mauritius','Morocco','Mozambique','Namibia', 'Niger','Nigeria','Rwanda','São Tomé and Príncipe','Senegal','Seychelles', 'Sierra Leone','Somalia','South Africa','S. Sudan','Sudan','Tanzania', 'Togo','Tunisia','Uganda','Zambia','Zimbabwe')
->>>>>>> 2c231e6be66f18104b3ab6ec585b4eea07ed79f3
   
   japan <- "Japan"
   
@@ -85,20 +73,11 @@ map_sales <- function(game_title) {
    # finally, leaflet plot!
   map <- leaflet(joined_df) |>
     addProviderTiles("CartoDB.Positron") |>
-<<<<<<< HEAD
     setView(lat = 40, lng = -40, zoom = 1) |>
     addPolygons(fillColor = ~pal(total_sales), fillOpacity = 0.7, weight = 1, popup = ~paste("<b>Game:</b> ", title, "<br>", "<b>Category:</b> ", VG_label, "<br>", "<b>Sales:</b> ", total_sales)) |>
     addLegend(
       pal = pal,
       values = joined_df$total_sales)
-=======
-    setView(lat = 40, lng = -79, zoom = 1) |>
-    addPolygons(fillColor = ~pal(total_sales), fillOpacity = 0.7, weight = 1, popup = ~paste("<b>Game:</b> ", title, "<br>", "<b>Category:</b> ", VG_label, "<br>", "<b>Sales:</b> ", total_sales)) |>
-    addLegend(
-      pal = pal,
-      values = joined_df$total_sales) |>
-    setMaxBounds(lng1 = -180, lat1 = -90, lng2 = 180, lat2 = 90)
->>>>>>> 2c231e6be66f18104b3ab6ec585b4eea07ed79f3
   
   return(map)
 }
@@ -112,14 +91,38 @@ map_sales("Grand Theft Auto V")
 
 map_sales("Red Dead Redemption 2")
 
-<<<<<<< HEAD
 map_sales("The Last of Us") # I need to add an error message to the function, we are missing data on sales for some games! basically if total_sales == 0, return a message saying "oops! we are missing sales data for this game"
-=======
-map_sales("The Last of Us") # I need to add an error message to the function, we are missing data on sales for some games! basically if sales = 0, return a message saying "oops! we are missing sales data for this game"
->>>>>>> 2c231e6be66f18104b3ab6ec585b4eea07ed79f3
 
 # maybe also a scale transformer so the numeric vals are meaningful?
 ```
 
 
 
+library(dplyr)
+  
+regional_share <- function(data, region_name, n) {
+  region_sym <- rlang::sym(region_name)
+  
+  if (!region_name %in% names(data)) {
+    stop(paste("Region", region_name, "does not exist in the dataset."))
+  } 
+  
+  data|>
+    filter(!!region_sym != total_sales)|>
+    mutate(region_share = (!!region_sym / total_sales) * 100)|>
+    select(title, !!region_sym, total_sales, region_share)|>
+    rename(region_sales = !!region_sym,
+           global_sales = total_sales)|>
+    arrange(desc(region_share))|>
+    slice_head(n = n) 
+}
+```
+
+```{r}
+top10_critics <- function(data){
+  data|>
+    arrange(desc(critic_score))|>
+    select(title, critic_score)|>
+    slice_head(n = 10)
+}
+```

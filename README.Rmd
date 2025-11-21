@@ -1,0 +1,59 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# VideoGames
+
+<!-- badges: start -->
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+<!-- badges: end -->
+
+The goal of VideoGames is to provide a streamlined toolkit for exploring and analyzing trends in global video game sales and development. Built for data analysis, it includes a data set along with functions for visualizing and modeling patterns in game performance, genre evolution, regional markets, and much more! 
+
+## Installation
+
+You can install rclimateca from CRAN with:
+
+``` r
+install.packages("VideoGames")
+```
+
+You can install the development version of VideoGames from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("pak")
+pak::pak("clinker-smith/VideoGames")
+```
+
+If you can load the package, everything worked!
+
+``` r
+library(VideoGames)
+```
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example}
+library(VideoGames)
+## basic example code
+```
+
+
+
+## More Information 
+
+See vignette("vg_instructions", package = "VideGames") and ?vg_instructions for more information about using VideoGames.
+

@@ -9,7 +9,7 @@
 #' from most common to least common. The output is printed directly to the
 #' console.
 #'
-#' @param df A data frame containing a column named `genre` representing
+#' @param .data A data frame containing a column named `genre` representing
 #' video game genres.
 #'
 #' @return Prints a data frame called `genre_df` with two columns:
@@ -20,17 +20,10 @@
 #' The function returns `NULL` invisibly after printing.
 #'
 #' @examples
-#' vg_data <- read.csv("vgchartz-2024.csv")
-#' print_genre(vg_data)
-#'
-#' output:
-#'               Genre Count
-#'              Misc  9304
-#'            Action  8557
-#'         Adventure  6260
-#'      Role-Playing  5721
-#'            Sports  5586
-#' ...
+#' ## Not run:
+#' ## vg_data <- read.csv("vgchartz-2024.csv")
+#' ## print_genre(vg_data)
+#' ## End(Not run)
 #'
 #' @export
 print_genre <- function(.data){
