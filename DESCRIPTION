@@ -18,7 +18,11 @@ Depends:
 Imports:
     dplyr,
     tidyr,
-    readr
+    readr,
+    leaflet, 
+    sf, 
+    rnaturalearth, 
+    rnaturalearthdata
 Suggests: 
     knitr,
     rmarkdown,
