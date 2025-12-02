@@ -44,16 +44,10 @@ library(VideoGames)
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+This is a basic example which shows you how to use a simple function within the package:
 
 ```{r example}
 library(VideoGames)
-## basic example code
+print_genre(vgchartz)
 ```
-
-
-
-## More Information 
-
-See vignette("vg_instructions", package = "VideGames") and ?vg_instructions for more information about using VideoGames.
-
+This will return a list of genres and their count in this dataset.
