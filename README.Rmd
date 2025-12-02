@@ -23,7 +23,7 @@ The goal of VideoGames is to provide a streamlined toolkit for exploring and ana
 
 ## Installation
 
-You can install rclimateca from CRAN with:
+You can install VideoGames from CRAN with:
 
 ``` r
 install.packages("VideoGames")

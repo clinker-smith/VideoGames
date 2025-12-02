@@ -17,7 +17,7 @@ regional markets, and much more!
 
 ## Installation
 
-You can install rclimateca from CRAN with:
+You can install VideoGames from CRAN with:
 
 ``` r
 install.packages("VideoGames")
