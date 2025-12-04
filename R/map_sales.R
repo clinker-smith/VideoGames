@@ -4,6 +4,12 @@
 #' Categories are displayed by appearance in the data: north american sales, japanese sales, european
 #' and african sales, and all other countries.
 #'
+#' @import dplyr
+#' @importFrom readr read_csv
+#' @import leaflet
+#' @import sf
+#' @importFrom rnaturalearth ne_countries
+#'
 #' @details This function takes the argument of a video game name. Ensure that the spelling of the
 #' matches how it is spelled in the data. The shapefile for this data was accessed via rnaturalearth
 #' data, containing polygons for each country in the world. This function combines those polygons into
@@ -32,7 +38,6 @@ map_sales <- function(game_title) {
   if (nrow(game_sales[game_sales$title == game_title, ]) == 0) {
     stop(paste("No such game exists, check the data for the spelling"))
   }
-
 
   # ne_countries come from `rnaturalearth` which we will include in the imports section of the description file. only selecting country name and geometry info for each country's polygon.
   world <- ne_countries(scale = "medium", returnclass = "sf") |>
@@ -65,6 +70,11 @@ map_sales <- function(game_title) {
   joined_df <- world_regions |>
     left_join(game_sales, by = "VG_label")
 
+  # check if any sales data is missing in the joined data frame
+  if (any(is.na(joined_df$total_sales)) || any(joined_df$total_sales == 0, na.rm = TRUE)) {
+    stop(paste("Oops! We are missing sales data for this game (", game_title, ")"))
+  }
+
   # color palette
   pal <- colorNumeric(palette = "YlGnBu", domain = joined_df$total_sales)
 
@@ -87,7 +97,5 @@ map_sales <- function(game_title) {
 
   return(map)
 }
-
-# I need to add an error message to the function, we are missing data on sales for some games! basically if total_sales == 0, return a message saying "oops! we are missing sales data for this game"
 
 # maybe also a scale transformer so the numeric vals are meaningful?
