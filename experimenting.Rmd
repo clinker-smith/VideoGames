@@ -2,6 +2,7 @@
 title: "experimenting"
 output: html_document
 ---
+# Leaflet function
 
 ```{r}
 library(readr)
@@ -97,7 +98,7 @@ map_sales("The Last of Us") # I need to add an error message to the function, we
 ```
 
 
-
+```{r}
 library(dplyr)
   
 regional_share <- function(data, region_name, n) {
@@ -126,3 +127,25 @@ top10_critics <- function(data){
     slice_head(n = 10)
 }
 ```
+
+# Calculate function
+
+```{r}
+print_installments <- function(game_title) {
+  game_title_lower <- tolower(game_title)
+  
+  df_short <- unique(vgchartz_2024["title"])
+  
+  matches <- grepl(game_title_lower, tolower(df_short$title))
+  
+  count <- sum(matches, na.rm = TRUE)
+  
+  cat("There were", count, "installments found for games with", game_title, "in the title")
+}
+```
+
+```{r}
+print_installments("Red Dead")
+```
+
+
