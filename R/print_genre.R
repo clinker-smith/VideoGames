@@ -16,7 +16,6 @@
 #'   \item \bold{Genre}: The name of the video game genre.
 #'   \item \bold{Count}: The number of games in that genre.
 #' }
-#' The function returns `NULL` invisibly after printing.
 #'
 #' @examples
 #' print_genre()

@@ -12,7 +12,6 @@ Prints a data frame called `genre_df` with two columns:
   \item \bold{Genre}: The name of the video game genre.
   \item \bold{Count}: The number of games in that genre.
 }
-The function returns `NULL` invisibly after printing.
 }
 \description{
 This function prints a table showing each video game genre in the dataset
