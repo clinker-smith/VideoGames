@@ -36,11 +36,14 @@ calc_time_diff <- function(.data, x){
   recent_update_val <- time_data$release_date[x]
 
   if (is.na(last_update_val) & is.na(recent_update_val)){
-    stop("Error: this video game has no listed release or update date.")}
+    stop("Error: this video game has no listed release or update date.")
+    break}
   else if (is.na(last_update_val)){
-    stop("Error: this video game has no listed update date.")}
+    stop("Error: this video game has no listed update date.")
+    break}
   else if (is.na(recent_update_val)){
-    stop("Error: this video game has no listed release date.")}
+    stop("Error: this video game has no listed release date.")
+    break}
   else{
     time_01 <- difftime(last_update_val, recent_update_val, units = "weeks")
     return(time_01)}}
