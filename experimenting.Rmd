@@ -97,7 +97,7 @@ map_sales("The Last of Us") # I need to add an error message to the function, we
 # maybe also a scale transformer so the numeric vals are meaningful?
 ```
 
-  
+
 ```{r}
 calc_regional_share <- function(data, region_name, n) {
   region_sym <- rlang::sym(region_name)
@@ -155,3 +155,7 @@ print_installments <- function(game_title) {
 ```{r}
 print_installments("Red Dead")
 ```
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1b8d40978d4f60c93bf0297022d38043ed641004
