@@ -99,7 +99,7 @@ map_sales("The Last of Us") # I need to add an error message to the function, we
 
   
 ```{r}
-regional_share <- function(data, region_name, n) {
+calc_regional_share <- function(data, region_name, n) {
   region_sym <- rlang::sym(region_name)
   
   if (!region_name %in% names(data)) {
