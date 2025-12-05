@@ -122,11 +122,20 @@ regional_share <- function(data, region_name, n) {
 
 
 ```{r}
-top10_critics <- function(data){
-  data|>
+top_n_critics <- function(n){
+  vgchartz|>
     arrange(desc(critic_score))|>
     select(title, critic_score)|>
-    slice_head(n = 10)
+    slice_head(n = n)
+}
+```
+
+```{r}
+calc_genre_mean_sales <- function(){
+  vgchartz|>
+    group_by(genre)|>
+    summarize(mean_sales = mean(.data[["total_sales"]], na.rm = TRUE))|>
+    arrange(desc(mean_sales))
 }
 ```
 

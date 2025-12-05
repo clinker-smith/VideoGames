@@ -4,11 +4,7 @@
 \alias{print_genre}
 \title{Video Game Genre Printer}
 \usage{
-print_genre(.data)
-}
-\arguments{
-\item{.data}{A data frame containing a column named `genre` representing
-video game genres.}
+print_genre()
 }
 \value{
 Prints a data frame called `genre_df` with two columns:
@@ -16,7 +12,6 @@ Prints a data frame called `genre_df` with two columns:
   \item \bold{Genre}: The name of the video game genre.
   \item \bold{Count}: The number of games in that genre.
 }
-The function returns `NULL` invisibly after printing.
 }
 \description{
 This function prints a table showing each video game genre in the dataset
@@ -30,9 +25,6 @@ from most common to least common. The output is printed directly to the
 console.
 }
 \examples{
-## Not run:
-## vg_data <- read.csv("vgchartz-2024.csv")
-## print_genre(vg_data)
-## End(Not run)
+print_genre()
 
 }

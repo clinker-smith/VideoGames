@@ -1,5 +1,5 @@
 ---
-title: "vg_instructions"
+title: "Using the VideoGames Package for Strategic Distribution Decisions"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{my-vignette}
@@ -17,3 +17,101 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(VideoGames)
 ```
+
+# Introduction
+
+Imagine you are a Senior Strategy Executive at a global video game distribution company,
+you need to make fast, data-driven decisions about:
+
+- which genres are profitable
+
+- which titles to license or distribute
+
+- which regions offer growth opportunities
+
+- which developers produce successful titles
+
+- which platforms deserve more investment
+
+- and how critically acclaimed certain games are
+
+The VideoGames package provides a suite of functions designed to help answer these real-world strategic questions using the vgchartz dataset.
+
+This vignette walks through a realistic business scenario and illustrates how each function can contribute to high-level decision-making.
+
+1. Which genres bring in the most money?
+
+Understanding which genres produce higher global sales helps determine
+what types of games your company should prioritize acquiring or promoting.
+
+Use: calc_genre_mean_sales()
+
+2. What are the top critic-acclaimed games?
+
+Critically acclaimed games tend to have strong long-term profitability.
+To identify the best-performing titles by critic score:
+
+Use: top_n_critics()
+
+3. What genres dominate the market?
+
+Understanding the genre trends in the data helps to recognize 
+over saturated genres and genres with potential market opportunity. 
+
+Use: print_genre()
+
+4. How much of a game's success comes from each global region?
+
+If you're making distribution decisions, knowing where a game sells best is essential.
+
+Use: calc_regional_share()
+
+5. Which consoles should we prioritize?
+
+Certain consoles generate more game titles and sales than others.
+
+Use: print_console()
+
+6. How do sales look on a global map for a specific game?
+
+For presentations or regional planning, a map visualization is essential.
+
+Use: map_sales()
+
+And much more!
+
+# An Example
+
+Suppose you are evaluating where your company should distribute the game "Wii Sports Club."
+
+1. Look at the game's regional sales share
+```{r}
+calc_regional_share("Wii Sports Club")
+```
+
+The game's highest sales take place in North America.
+
+2. Compare its genre against the average performance of similar games
+```{r}
+calc_genre_mean_sales()
+```
+
+The sport genre is the 4th leading genre in sales, with the 4th highest mean value of global sales. 
+
+3. Visualize its global sales to understand geographic opportunities
+```{r}
+map_sales("Wii Sports Club")
+```
+
+The map visualization confirms that North America accounts for the highest sales, while also highlighting strong performance in Europe and Africa.
+
+With this knowledge and the possibility of more analysis, your company decides to distribute the game Wii Sports Club in the US and plans to expand to Europe. They also plan to look into games within the Sandbox and Shooter genres in order to increase profits in the future. 
+
+# Conclusion
+
+The VideoGames package provides powerful tools for executives and analysts
+in the gaming distribution industry. Whether you are identifying profitable genres, 
+evaluating developers, or assessing regional performance, these functions 
+support real-world strategic decision-making.
+
+
