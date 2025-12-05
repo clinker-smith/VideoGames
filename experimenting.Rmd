@@ -2,6 +2,7 @@
 title: "experimenting"
 output: html_document
 ---
+# Leaflet function
 
 ```{r}
 library(readr)
@@ -96,6 +97,7 @@ map_sales("The Last of Us") # I need to add an error message to the function, we
 # maybe also a scale transformer so the numeric vals are meaningful?
 ```
 
+  
 ```{r}
 regional_share <- function(data, region_name, n) {
   region_sym <- rlang::sym(region_name)
@@ -117,10 +119,39 @@ regional_share <- function(data, region_name, n) {
 
 
 ```{r}
-top10_critics <- function(data){
-  data|>
+top_n_critics <- function(n){
+  vgchartz|>
     arrange(desc(critic_score))|>
     select(title, critic_score)|>
-    slice_head(n = 10)
+    slice_head(n = n)
 }
+```
+
+```{r}
+calc_genre_mean_sales <- function(){
+  vgchartz|>
+    group_by(genre)|>
+    summarize(mean_sales = mean(.data[["total_sales"]], na.rm = TRUE))|>
+    arrange(desc(mean_sales))
+}
+```
+
+# Calculate function
+
+```{r}
+print_installments <- function(game_title) {
+  game_title_lower <- tolower(game_title)
+  
+  df_short <- unique(vgchartz_2024["title"])
+  
+  matches <- grepl(game_title_lower, tolower(df_short$title))
+  
+  count <- sum(matches, na.rm = TRUE)
+  
+  cat("There were", count, "installments found for games with", game_title, "in the title")
+}
+```
+
+```{r}
+print_installments("Red Dead")
 ```
