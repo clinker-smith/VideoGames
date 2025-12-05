@@ -155,7 +155,4 @@ print_installments <- function(game_title) {
 ```{r}
 print_installments("Red Dead")
 ```
-<<<<<<< HEAD
-=======
 
->>>>>>> 1b8d40978d4f60c93bf0297022d38043ed641004
