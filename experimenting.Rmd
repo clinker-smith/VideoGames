@@ -150,4 +150,3 @@ print_installments <- function(game_title) {
 print_installments("Red Dead")
 ```
 
-
