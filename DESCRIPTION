@@ -22,13 +22,13 @@ Imports:
     leaflet, 
     sf, 
     rnaturalearth, 
-    rnaturalearthdata
+    rnaturalearthdata,
+    crayon,
+    emoji
 Suggests: 
     knitr,
     rmarkdown,
-    testthat (>= 3.0.0),
-    crayon
-    emoji
+    testthat (>= 3.0.0)
 VignetteBuilder: knitr
 RoxygenNote: 7.3.3
 Config/testthat/edition: 3

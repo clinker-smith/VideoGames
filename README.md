@@ -69,3 +69,8 @@ print_genre(vgchartz)
 ```
 
 This will return a list of genres and their count in this dataset.
+
+
+``` r
+graph_developers("Naughty Dog")
+```
