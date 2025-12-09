@@ -24,7 +24,8 @@ Imports:
     rnaturalearth, 
     rnaturalearthdata,
     crayon,
-    emoji
+    emoji,
+    ggplot2
 Suggests: 
     knitr,
     rmarkdown,
