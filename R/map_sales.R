@@ -27,8 +27,6 @@
 #'
 #' @export
 map_sales <- function(game_title) {
-  # imports the transformed data needed to run this task, included in package files
-  vg_long <- read_csv(file.path(getwd(), "/data/vg_long.csv"))
 
   # filters to JUST the game title so that we can merge the shapefiles and vg data without a crazy one to many situation
   game_sales <- vg_long |>
