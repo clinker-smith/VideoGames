@@ -99,10 +99,7 @@ map_sales("The Last of Us") # I need to add an error message to the function, we
 
 
 ```{r}
-library(dplyr)
-  
-```{r}
-regional_share <- function(data, region_name, n) {
+calc_regional_share <- function(data, region_name, n) {
   region_sym <- rlang::sym(region_name)
   
   if (!region_name %in% names(data)) {
@@ -122,11 +119,20 @@ regional_share <- function(data, region_name, n) {
 
 
 ```{r}
-top10_critics <- function(data){
-  data|>
+top_n_critics <- function(n){
+  vgchartz|>
     arrange(desc(critic_score))|>
     select(title, critic_score)|>
-    slice_head(n = 10)
+    slice_head(n = n)
+}
+```
+
+```{r}
+calc_genre_mean_sales <- function(){
+  vgchartz|>
+    group_by(genre)|>
+    summarize(mean_sales = mean(.data[["total_sales"]], na.rm = TRUE))|>
+    arrange(desc(mean_sales))
 }
 ```
 
