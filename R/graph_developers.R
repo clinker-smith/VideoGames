@@ -5,14 +5,15 @@
 #'
 #' @import dplyr
 #' @import ggplot2
+#' @import tidyr
 #'
 #' @details This function takes the argument of a developer name. Ensure that the spelling of the
 #' matches how it is spelled in the data. The function will return a column plot showing the game
 #' sales for the 4 regions in our data
 #'
-#' @param The dataframe 'vgchartz' stored in data file
+#' @param The name of the developer
 #'
-#' @return Prints a plor using the R package ggplot2 and a Brewer color palette.
+#' @return Prints a plot using the R package ggplot2 and a Brewer color palette.
 #'
 #' @examples
 #' # graph_developers("Konami")

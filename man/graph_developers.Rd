@@ -7,10 +7,10 @@
 graph_developers(dev_name)
 }
 \arguments{
-\item{The}{dataframe 'vgchartz' stored in data file}
+\item{The}{name of the developer}
 }
 \value{
-Prints a plor using the R package ggplot2 and a Brewer color palette.
+Prints a plot using the R package ggplot2 and a Brewer color palette.
 }
 \description{
 This function creates a column plot of global game sales for specific developers

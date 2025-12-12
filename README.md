@@ -39,12 +39,12 @@ library(VideoGames)
 
 ## Example
 
-This is a basic example which shows you how to use a simple function
+This is a basic example which shows you how to use two simple function
 within the package:
 
 ``` r
 library(VideoGames)
-print_genre(vgchartz)
+print_genre()
 #>               Genre Count
 #> 1              Misc  9304
 #> 2            Action  8557
@@ -70,7 +70,10 @@ print_genre(vgchartz)
 
 This will return a list of genres and their count in this dataset.
 
-
 ``` r
 graph_developers("Naughty Dog")
 ```
+
+<img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" /> This
+function creates a column plot of global game sales for specific
+developers by region.
